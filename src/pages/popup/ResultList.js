@@ -5,14 +5,22 @@ class ResultList extends Component {
     {
         super();
         this.state = {
-            results : []
+            results : [],
+            sleepTimer : null
         };
     }
 
-    async componentDidMount(){
-        const res = await this.props.invokeRequest();
-        console.log(res);
-        this.setState({"results" : res});
+    async componentWillReceiveProps(){
+        if(this.state.sleepTimer)
+        {
+            clearTimeout(this.state.sleepTimer);
+            this.setState({sleepTimer:null});
+        }
+        const timer = setTimeout( async () => {
+            const res = await this.props.invokeRequest(this.props.searchWord);
+            this.setState({"results" : res});
+        },1000);
+        this.setState({sleepTimer:timer});
     }
 
     render() {
@@ -23,7 +31,7 @@ class ResultList extends Component {
                 </header>
                 <ul>
                     {
-                        this.state.results.slice(0, 3).map((x) => <li key={x.url}>
+                        (this.state.results || []).slice(0, 3).map((x) => <li key={x.url}>
                             <a href={x.url}>{x.displayName}</a>
                         </li>)
                     }
