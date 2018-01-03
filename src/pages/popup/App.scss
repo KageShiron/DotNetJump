@@ -1,7 +1,30 @@
+html{
+  width:300px;
+  position:relative;
+}
+
 .App-header {
   background-color: #68217A;
-  padding: 20px;
-  color: white; }
+  padding: 0.5em;
+  color: white; 
+  .search-word{
+    width:100%;
+  }
+  .search-button {
+    line-height:1em;
+    position: absolute;
+    color: #CCC;
+    right: 0.6em;
+    padding: 0.3em;
+    cursor: pointer;
+    &:hover{
+      color: #999;
+    }
+    &:active{
+      color: #666;
+    }
+  }
+}
 
 .App-title {
   font-size: 1.5em; }
@@ -26,9 +49,10 @@ header.ResultHeader
   font-size:14px;
   padding:0.2em 0.5em;
   img{
-    height:1em;
+    height:16px;
+    line-height:16px;
     position: relative;
-    top: 1px;
+    vertical-align: bottom;
     margin-right: .5em;
   }
 }
