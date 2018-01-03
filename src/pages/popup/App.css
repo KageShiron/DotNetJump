@@ -28,7 +28,8 @@ header.ResultHeader {
 ul {
   list-style: none;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  height: 6em; }
   ul li {
     border-bottom: 1px solid #DDD; }
     ul li a {
