@@ -95,7 +95,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "globals": {
+      "browser": true
+    }
   },
   "devDependencies": {
     "css-loader": "^0.28.7",

@@ -7,5 +7,5 @@
     "default_title": "Whereami?",
     "default_popup": "popup.html"
   },
-  "permissions":["https://docs.microsoft.com/*","https://referencesource.microsoft.com/*","https://services.social.microsoft.com/*"]
+  "permissions":["activeTab","https://docs.microsoft.com/*","https://referencesource.microsoft.com/*","https://services.social.microsoft.com/*"]
 }

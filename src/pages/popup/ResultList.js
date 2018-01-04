@@ -6,21 +6,13 @@ class ResultList extends Component {
         super();
         this.state = {
             results : [],
-            sleepTimer : null
         };
     }
 
-    async componentWillReceiveProps(){
-        if(this.state.sleepTimer)
-        {
-            clearTimeout(this.state.sleepTimer);
-            this.setState({sleepTimer:null});
-        }
-        const timer = setTimeout( async () => {
-            const res = await this.props.invokeRequest(this.props.searchWord);
-            this.setState({"results" : res});
-        },1000);
-        this.setState({sleepTimer:timer});
+    async componentWillReceiveProps(newProps){
+        console.log(newProps.searchWord);
+        const res = await newProps.invokeRequest(newProps.searchWord);
+        this.setState({"results" : res});
     }
 
     render() {
