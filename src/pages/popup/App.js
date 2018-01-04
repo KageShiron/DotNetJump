@@ -34,12 +34,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <input className="search-word" type="search" name="searchWord" 
+          <input className="search-word" type="search" name="searchWord"
+            autoFocus
             value={this.state.searchWord} onChange={ this.handleInputChange }
             onKeyDown={ e => { if(e.keyCode === 13) this.invokeSearch(e); } } />
-          <a className="search-button" onClick={this.invokeSearch}>
-            <FA name="search" />
-          </a>
+            <FA name="search" className="search-icon" />
         </header>
         <ResultList siteInfo={(<div><img src="https://docs.microsoft.com/favicon.ico" />Docs</div>) } invokeRequest={ SearchSource.searchDocs } searchWord={this.state.searchWord} searchUrl={"https://docs.microsoft.com/ja-jp/dotnet/api/index?term=" + this.state.searchWord} />
         <ResultList siteInfo={(<div><img src="https://referencesource.microsoft.com/favicon.ico" />Reference Source</div>)} invokeRequest={ SearchSource.searchReferenceSource } searchWord={this.state.searchWord} searchUrl={"https://referencesource.microsoft.com/#q=" + this.state.searchWord} />
