@@ -27,12 +27,18 @@ class ResultList extends Component {
         return (
             <div className="ResultList">
                 <header className="ResultHeader">
-                    {this.props.siteInfo}
+                    <a href={this.props.searchUrl}>
+                        {this.props.siteInfo}
+                    </a>
                 </header>
                 <ul>
                     {
-                        (this.state.results || []).slice(0, 3).map((x) => <li key={x.url}>
-                            <a href={x.url}>{x.displayName}</a>
+                        (this.state.results || []).map((x) => <li key={x.url}>
+                            <a href={x.url}>
+                                { (() => { if(x.icon)return <img className="type-icon" src={x.icon} />})() }
+                                {x.displayName}
+                                <small>{x.itemKind || ""}</small>
+                            </a>
                         </li>)
                     }
                 </ul>

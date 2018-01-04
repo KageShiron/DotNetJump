@@ -37,18 +37,20 @@ export default {
         console.log("searchReferenceSource:"+name);
         const url = `https://referencesource.microsoft.com/api/symbols/?symbol=${name}`;
         const res = (await (await fetch(url)).text());
-        const alist = new DOMParser().parseFromString(res, "text/html").querySelectorAll(".resultGroup>div:not(.resultGroupHeader)>a");
+        const alist = new DOMParser().parseFromString(`<base href="https://referencesource.microsoft.com/" />`+res, "text/html").querySelectorAll(".resultGroup>div:not(.resultGroupHeader)>a");
         const list = [];
         console.log(alist);
         for (let e of alist) {
             const desc = e.querySelector(".resultDescription");
             const kind = e.querySelector(".resultKind");
-            if (desc && kind) {
+            const img = e.querySelector("img");
+            if (desc && kind && img) {
                 list.push({
+                    icon: img.src,
                     displayName: desc.textContent,
                     //displayName : e.querySelector(".resultName").text(),
                     itemKind: kind.textContent,
-                    url: "https://referencesource.microsoft.com/" + e.href
+                    url: e.href
                 });
             }
         };

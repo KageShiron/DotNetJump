@@ -1,5 +1,6 @@
-html{
-  width:300px;
+body{
+  min-width:400px;
+  max-width:700px;
   position:relative;
 }
 
@@ -45,9 +46,15 @@ input{
 header.ResultHeader
 {
   background:#EDD6F3;
-  color:#666;
-  font-size:14px;
+  font-size:12px;
   padding:0.2em 0.5em;
+  a{
+    color:#666;
+    text-decoration: none;
+    &:hover{
+      text-decoration:underline;
+    }
+  }
   img{
     height:16px;
     line-height:16px;
@@ -60,14 +67,29 @@ ul{
   list-style: none;
   padding:0;
   margin:0;
-  height:6em;
+  height:calc( 6em + 4px );
+  font-size:12px;
+  overflow-y: scroll;
   li{
     border-bottom:1px solid #DDD;
+    overflow: hidden;
+    text-overflow: ellipsis;
     a{
       text-decoration: none;
       color: #000;
       padding: 0.5em;
       display: block;
+      img.type-icon
+      {
+        height:1em;
+        vertical-align: bottom;
+        margin-right:.2em;
+        line-height:1em;
+      }
+      small{
+        color:#666;
+        margin-left:.3em;
+      }
     }
   }
 }
