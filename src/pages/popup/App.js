@@ -51,7 +51,13 @@ class App extends Component {
             autoFocus
             value={this.state.inputText} onChange={ this.handleInputChange }
             onKeyDown={ e => { if(e.keyCode === 13) this.invokeSearch(e); } } />
-            <FA name="search" className="search-icon" />
+          <FA name="search" className="search-icon" />
+          <a className="web-search" href={ "https://www.bing.com/search?q=" + this.state.inputText} title="Bing Search">
+            <img src="https://www.bing.com/favicon.ico" />
+          </a>
+          <a className="web-search" href={"https://www.google.com/search?q=" + this.state.inputText} title="Google Search">
+            <img src="https://www.google.com/favicon.ico" />
+          </a>
         </header>
         <ResultList siteInfo={(<div><img src="https://docs.microsoft.com/favicon.ico" />Docs</div>) } invokeRequest={ SearchSource.searchDocs } searchWord={this.state.searchWord} searchUrl={"https://docs.microsoft.com/ja-jp/dotnet/api/index?term=" + this.state.searchWord} />
         <ResultList siteInfo={(<div><img src="https://referencesource.microsoft.com/favicon.ico" />Reference Source</div>)} invokeRequest={ SearchSource.searchReferenceSource } searchWord={this.state.searchWord} searchUrl={"https://referencesource.microsoft.com/#q=" + this.state.searchWord} />

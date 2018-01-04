@@ -8,7 +8,9 @@ body{
 .App-header {
   background-color: #68217A;
   padding: 0.5em;
-  color: white; 
+  color: white;
+  font-size:12px;
+  display: flex;
   .search-word{
     width:100%;
     padding-left:2.5em;
@@ -24,6 +26,20 @@ body{
       color: #999;
     }
   }
+  .web-search{
+    line-height: calc( 2.3em - 2px);
+    background: white;
+    align-items: center;
+    vertical-align: middle;
+    border: 1px solid #CCC;
+    box-sizing: content-box;
+    margin-left: 5px;
+    padding: 0 5px;
+    img {
+      height: 16px;
+      vertical-align: middle;
+    }
+  }
 }
 
 .App-title {
@@ -31,7 +47,8 @@ body{
 
 input{
   border:1px solid #CCC;
-  height:2.5em;
+  height:2.3em;
+  font-size:12px;
 
   &[type=button]
   {
