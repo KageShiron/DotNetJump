@@ -5,12 +5,12 @@ import FA from 'react-fontawesome';
 import SearchSource from './search'
 
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      inputText:"",
-      searchWord:"",
-      sleepTimer:null
+      inputText: "",
+      searchWord: "",
+      sleepTimer: null
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,22 +24,21 @@ class App extends Component {
       [name]: value
     });
 
-    if(this.state.sleepTimer)
-    {
+    if (this.state.sleepTimer) {
       clearTimeout(this.state.sleepTimer);
-      this.setState({sleepTimer:null});
+      this.setState({ sleepTimer: null });
     }
-    const timer = setTimeout( async () => {
-      this.setState({searchWord:value})
-    },1000);
-    this.setState({sleepTimer:timer});
+    const timer = setTimeout(async () => {
+      this.setState({ searchWord: value })
+    }, 1000);
+    this.setState({ sleepTimer: timer });
   }
 
   async componentWillMount() {
     const val = await browser.tabs.executeScript({
-      file : "/injection/injection.js"
+      file: "/injection/injection.js"
     });
-    this.setState({"inputText":val[0],"searchWord":val[0]});
+    this.setState({ "inputText": val[0], "searchWord": val[0] });
   }
 
   render() {

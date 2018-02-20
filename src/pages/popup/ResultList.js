@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 
 class ResultList extends Component {
-    constructor()
-    {
+    constructor() {
         super();
         this.state = {
-            results : [],
+            results: [],
         };
     }
 
-    async componentWillReceiveProps(newProps){
+    async componentWillReceiveProps(newProps) {
         console.log(newProps.searchWord);
         const res = await newProps.invokeRequest(newProps.searchWord);
-        this.setState({"results" : res});
+        this.setState({ "results": res });
     }
 
     render() {
@@ -30,7 +29,7 @@ class ResultList extends Component {
                     {
                         (this.state.results || []).map((x) => <li key={x.url}>
                             <a href={x.url}>
-                                { (() => { if(x.icon)return <img className="type-icon" src={x.icon} />})() }
+                                {(() => { if (x.icon) return <img className="type-icon" src={x.icon} /> })()}
                                 {x.displayName}
                                 <small>{x.itemKind || ""}</small>
                             </a>
