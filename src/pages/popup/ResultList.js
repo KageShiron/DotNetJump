@@ -19,8 +19,11 @@ class ResultList extends Component {
         return (
             <div className="ResultList">
                 <header className="ResultHeader">
+                    <a href={this.props.siteHomeUrl}>
+                        <img src={this.props.icon} />
+                    </a>
                     <a href={this.props.searchUrl}>
-                        {this.props.siteInfo}
+                        {this.props.siteName}
                     </a>
                 </header>
                 <ul>

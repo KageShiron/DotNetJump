@@ -49,19 +49,25 @@ class App extends Component {
         <header className="App-header">
           <input className="search-word" type="search" name="inputText"
             autoFocus
-            value={this.state.inputText} onChange={ this.handleInputChange }
-            onKeyDown={ e => { if(e.keyCode === 13) this.invokeSearch(e); } } />
+            value={this.state.inputText} onChange={this.handleInputChange}
+            onKeyDown={e => { if (e.keyCode === 13) this.invokeSearch(e); }} />
           <FA name="search" className="search-icon" />
-          <a className="web-search" href={ "https://www.bing.com/search?q=" + this.state.inputText} title="Bing Search">
+          <a className="web-search" href={"https://www.bing.com/search?q=" + this.state.inputText} title="Bing Search">
             <img src="https://www.bing.com/favicon.ico" />
           </a>
           <a className="web-search" href={"https://www.google.com/search?q=" + this.state.inputText} title="Google Search">
             <img src="https://www.google.com/favicon.ico" />
           </a>
         </header>
-        <ResultList siteInfo={(<div><img src="https://docs.microsoft.com/favicon.ico" />Docs</div>) } invokeRequest={ SearchSource.searchDocs } searchWord={this.state.searchWord} searchUrl={"https://docs.microsoft.com/ja-jp/dotnet/api/index?term=" + this.state.searchWord} />
-        <ResultList siteInfo={(<div><img src="https://referencesource.microsoft.com/favicon.ico" />Reference Source</div>)} invokeRequest={ SearchSource.searchReferenceSource } searchWord={this.state.searchWord} searchUrl={"https://referencesource.microsoft.com/#q=" + this.state.searchWord} />
-        <ResultList siteInfo={(<div><img src="https://i1.social.s-msft.com/Search/GlobalResources/images/Msdn/favicon.ico" />MSDN</div>)}  invokeRequest={ SearchSource.searchMsdn } searchWord={this.state.searchWord} searchUrl={"https://social.msdn.microsoft.com/search/en-US?query=" + this.state.searchWord} />
+        <ResultList siteHomeUrl="https://docs.microsoft.com/" siteName="Docs" icon="https://docs.microsoft.com/favicon.ico"
+          invokeRequest={SearchSource.searchDocs} searchWord={this.state.searchWord}
+          searchUrl={"https://docs.microsoft.com/ja-jp/dotnet/api/index?term=" + this.state.searchWord} />
+        <ResultList siteHomeUrl="https://referencesource.microsoft.com/" siteName="Reference Source" icon="https://referencesource.microsoft.com/favicon.ico"
+          invokeRequest={SearchSource.searchReferenceSource} searchWord={this.state.searchWord}
+          searchUrl={"https://referencesource.microsoft.com/#q=" + this.state.searchWord} />
+        <ResultList siteHomeUrl="https://msdn.microsoft.com" siteName="MSDN" icon="https://i1.social.s-msft.com/Search/GlobalResources/images/Msdn/favicon.ico"
+          invokeRequest={SearchSource.searchMsdn} searchWord={this.state.searchWord}
+          searchUrl={"https://social.msdn.microsoft.com/search/en-US?query=" + this.state.searchWord} />
       </div>
     );
   }
