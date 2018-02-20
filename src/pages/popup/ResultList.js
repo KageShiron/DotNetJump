@@ -5,13 +5,15 @@ class ResultList extends Component {
         super();
         this.state = {
             results: [],
+            loading:false
         };
     }
 
     async componentWillReceiveProps(newProps) {
+        this.setState({ "loading": true });
         console.log(newProps.searchWord);
         const res = await newProps.invokeRequest(newProps.searchWord);
-        this.setState({ "results": res });
+        this.setState({ "results": res  , "loading" : false });
     }
 
     render() {
@@ -24,6 +26,7 @@ class ResultList extends Component {
                     <a href={this.props.searchUrl}>
                         {this.props.siteName}
                     </a>
+                    { this.state.loading ? <img src="/static/img/loading.svg" style={{"width":12}} /> : ""}
                 </header>
                 <ul>
                     {
