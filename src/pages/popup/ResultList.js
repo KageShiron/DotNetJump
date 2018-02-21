@@ -16,6 +16,13 @@ class ResultList extends Component {
         this.setState({ "results": res  , "loading" : false });
     }
 
+    async handleClick(e)
+    {
+        e.preventDefault();
+        await browser.tabs.create({ url:e.target.href});
+        window.close();
+    }
+
     render() {
         return (
             <div className="ResultList">
@@ -31,7 +38,7 @@ class ResultList extends Component {
                 <ul>
                     {
                         (this.state.results || []).map((x) => <li key={x.url}>
-                            <a href={x.url}>
+                            <a href={x.url} onClick={this.handleClick}>
                                 {(() => { if (x.icon) return <img className="type-icon" src={x.icon} /> })()}
                                 {x.displayName}
                                 <small>{x.itemKind || ""}</small>
