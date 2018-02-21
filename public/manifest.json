@@ -4,8 +4,9 @@
   "description": "Jump to another .NET document.",
   "version":"0.1",
   "browser_action": {
-    "default_title": "Dot Net Jump",
-    "default_popup": "popup.html"
+    "default_title": "DotNetJump",
+    "default_popup": "popup.html",
+    "default_icon": "/static/img/logo.svg"
   },
   "permissions":["activeTab","https://docs.microsoft.com/*","https://referencesource.microsoft.com/*","https://services.social.microsoft.com/*"]
 }
