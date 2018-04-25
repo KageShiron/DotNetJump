@@ -64,6 +64,9 @@ class App extends Component {
         <ResultList siteHomeUrl="https://referencesource.microsoft.com/" siteName="Reference Source" icon="https://referencesource.microsoft.com/favicon.ico"
           invokeRequest={SearchSource.searchReferenceSource} searchWord={this.state.searchWord}
           searchUrl={"https://referencesource.microsoft.com/#q=" + this.state.searchWord} />
+        <ResultList siteHomeUrl="https://referencesource.microsoft.com/" siteName=".NET Core Source Browser" icon="https://source.dot.net/favicon.ico"
+          invokeRequest={SearchSource.searchNetCoreSource} searchWord={this.state.searchWord}
+          searchUrl={"https://source.dot.net/#q=" + this.state.searchWord} />
         <ResultList siteHomeUrl="https://msdn.microsoft.com" siteName="MSDN" icon="https://i1.social.s-msft.com/Search/GlobalResources/images/Msdn/favicon.ico"
           invokeRequest={SearchSource.searchMsdn} searchWord={this.state.searchWord}
           searchUrl={"https://social.msdn.microsoft.com/search/en-US?query=" + this.state.searchWord} />
